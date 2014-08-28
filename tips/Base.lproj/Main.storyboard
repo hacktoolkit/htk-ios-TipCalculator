@@ -84,7 +84,7 @@
                     <navigationItem key="navigationItem" id="BTO-eQ-rG9">
                         <barButtonItem key="rightBarButtonItem" title="Settings" id="sk8-i3-uBf">
                             <connections>
-                                <segue destination="s3F-Lk-oU5" kind="modal" identifier="settingsSegue" id="8XM-Tr-TYx"/>
+                                <segue destination="6IE-vc-eS9" kind="modal" identifier="settingsSegue" id="8XM-Tr-TYx"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -123,11 +123,18 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <toolbarItems/>
+                    <navigationItem key="navigationItem" id="F16-7f-ArU">
+                        <barButtonItem key="rightBarButtonItem" title="Done" id="w2j-7m-cFR">
+                            <connections>
+                                <action selector="onDonePressed:" destination="s3F-Lk-oU5" id="I1K-Z5-96l"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="TAW-e2-TIN" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1075" y="316"/>
+            <point key="canvasLocation" x="1607" y="316"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="7ef-Gr-cfm">
@@ -147,6 +154,24 @@
                 <barButtonItem title="Settings" id="RQV-oy-Cpc"/>
             </objects>
             <point key="canvasLocation" x="140" y="316"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="K99-aF-OHK">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="6IE-vc-eS9" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="CNa-Lc-rlU">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="s3F-Lk-oU5" kind="relationship" relationship="rootViewController" id="l4n-ZT-dps"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="2gm-54-QHk" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1075" y="316"/>
         </scene>
     </scenes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">

@@ -32,4 +32,7 @@ class SettingsViewController: UIViewController {
     }
     */
 
+    @IBAction func onDonePressed(sender: AnyObject) {
+        dismissViewControllerAnimated(true, completion: nil)
+    }
 }
