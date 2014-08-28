@@ -26,6 +26,10 @@ class TipsViewController: UIViewController {
         super.viewWillAppear(animated)
         println("tips view will appear")
         setupTipControl(tipControl)
+        var lastBillAmount: Double? = getLastBillAmount()
+        if (lastBillAmount != nil) {
+            billField.text = String(format: "%.2f", lastBillAmount!)
+        }
         displayUpdatedTip()
     }
     
@@ -50,19 +54,22 @@ class TipsViewController: UIViewController {
     }
 
     @IBAction func onEditingChanged(sender: AnyObject) {
-        displayUpdatedTip()
+        displayUpdatedTip(wasEdited: true)
     }
 
     @IBAction func onTap(sender: AnyObject) {
         view.endEditing(true)
     }
 
-    func displayUpdatedTip() {
+    func displayUpdatedTip(wasEdited: Bool = false) {
         var tipPercentage = getTipPercentage(tipControl.selectedSegmentIndex)
         var billAmount = (billField.text as NSString).doubleValue
         var tip = billAmount * tipPercentage
         var total = billAmount + tip
-        
+
+        if (wasEdited) {
+            storeLastBillAmount(billAmount)
+        }
         tipLabel.text = String(format: "$%.2f", tip)
         totalLabel.text = String(format: "$%.2f", total)
     }
