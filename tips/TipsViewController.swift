@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class TipsViewController: UIViewController {
                             
     @IBOutlet weak var billField: UITextField!
     @IBOutlet weak var tipLabel: UILabel!

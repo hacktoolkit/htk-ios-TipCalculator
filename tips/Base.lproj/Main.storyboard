@@ -5,10 +5,10 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7026.1"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Tips View Controller-->
         <scene sceneID="ufC-wZ-h7g">
             <objects>
-                <viewController id="vXZ-lx-hvc" customClass="ViewController" customModule="tips" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="vXZ-lx-hvc" customClass="TipsViewController" customModule="tips" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="kh9-bI-dsS">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -81,7 +81,13 @@
                             <outletCollection property="gestureRecognizers" destination="EMP-Ib-VdS" appends="YES" id="ohC-Qt-sp3"/>
                         </connections>
                     </view>
-                    <navigationItem key="navigationItem" id="BTO-eQ-rG9"/>
+                    <navigationItem key="navigationItem" id="BTO-eQ-rG9">
+                        <barButtonItem key="rightBarButtonItem" title="Settings" id="sk8-i3-uBf">
+                            <connections>
+                                <segue destination="s3F-Lk-oU5" kind="modal" identifier="settingsSegue" id="8XM-Tr-TYx"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="billField" destination="OYU-2d-3um" id="hHS-Oo-DTp"/>
                         <outlet property="tipControl" destination="Hst-0w-ZrR" id="Qz1-UH-tV8"/>
@@ -96,7 +102,32 @@
                     </connections>
                 </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="779" y="316"/>
+            <point key="canvasLocation" x="596" y="316"/>
+        </scene>
+        <!--Settings View Controller-->
+        <scene sceneID="0ja-OF-8sT">
+            <objects>
+                <viewController id="s3F-Lk-oU5" customClass="SettingsViewController" customModule="tips" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Mfn-Dj-Q0v">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Make any changes to your settings" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="x6E-On-53A">
+                                <rect key="frame" x="26" y="93" width="268" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <toolbarItems/>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="TAW-e2-TIN" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1075" y="316"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="7ef-Gr-cfm">
@@ -115,7 +146,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bOo-nI-DVd" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <barButtonItem title="Settings" id="RQV-oy-Cpc"/>
             </objects>
-            <point key="canvasLocation" x="247" y="316"/>
+            <point key="canvasLocation" x="140" y="316"/>
         </scene>
     </scenes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
