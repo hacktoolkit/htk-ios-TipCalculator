@@ -10,12 +10,34 @@ import UIKit
 
 class SettingsViewController: UIViewController {
 
+    @IBOutlet weak var defaultTipControl: UISegmentedControl!
+
     override func viewDidLoad() {
         super.viewDidLoad()
-
         // Do any additional setup after loading the view.
     }
 
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        println("settings view will appear")
+        setupTipControl(defaultTipControl)
+    }
+    
+    override func viewDidAppear(animated: Bool) {
+        super.viewDidAppear(animated)
+        println("settings view did appear")
+    }
+    
+    override func viewWillDisappear(animated: Bool) {
+        super.viewWillDisappear(animated)
+        println("settings view will disappear")
+    }
+    
+    override func viewDidDisappear(animated: Bool) {
+        super.viewDidDisappear(animated)
+        println("settings view did disappear")
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -33,6 +55,16 @@ class SettingsViewController: UIViewController {
     */
 
     @IBAction func onDonePressed(sender: AnyObject) {
+        dismissThisView()
+    }
+
+    @IBAction func onEditingChanged(sender: AnyObject) {
+        var tipPercentage = getTipPercentage(defaultTipControl.selectedSegmentIndex)
+        setDefaultTipPercentage(tipPercentage)
+        dismissThisView()
+    }
+
+    func dismissThisView() {
         dismissViewControllerAnimated(true, completion: nil)
     }
 }

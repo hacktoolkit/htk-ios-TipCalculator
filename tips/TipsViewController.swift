@@ -1,5 +1,5 @@
 //
-//  ViewController.swift
+//  TipsViewController.swift
 //  tips
 //
 //  Created by Jonathan Tsai on 8/21/14.
@@ -22,25 +22,50 @@ class TipsViewController: UIViewController {
         totalLabel.text = "$0.00"
     }
 
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        println("tips view will appear")
+        setupTipControl(tipControl)
+        displayUpdatedTip()
+    }
+    
+    override func viewDidAppear(animated: Bool) {
+        super.viewDidAppear(animated)
+        println("tips view did appear")
+    }
+    
+    override func viewWillDisappear(animated: Bool) {
+        super.viewWillDisappear(animated)
+        println("tips view will disappear")
+    }
+    
+    override func viewDidDisappear(animated: Bool) {
+        super.viewDidDisappear(animated)
+        println("tips view did disappear")
+    }
+
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
 
     @IBAction func onEditingChanged(sender: AnyObject) {
-        var tipPercentages = [0.18, 0.2, 0.22]
-        var tipPercentage = tipPercentages[tipControl.selectedSegmentIndex]
-        var billAmount = (billField.text as NSString).doubleValue
-        var tip = billAmount * tipPercentage
-        var total = billAmount + tip
-
-        tipLabel.text = String(format: "$%.2f", tip)
-        totalLabel.text = String(format: "$%.2f", total)
+        displayUpdatedTip()
     }
 
     @IBAction func onTap(sender: AnyObject) {
         view.endEditing(true)
     }
 
+    func displayUpdatedTip() {
+        var tipPercentage = getTipPercentage(tipControl.selectedSegmentIndex)
+        var billAmount = (billField.text as NSString).doubleValue
+        var tip = billAmount * tipPercentage
+        var total = billAmount + tip
+        
+        tipLabel.text = String(format: "$%.2f", tip)
+        totalLabel.text = String(format: "$%.2f", total)
+    }
+    
 }
 
