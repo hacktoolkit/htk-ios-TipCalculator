@@ -11,6 +11,8 @@ import UIKit
 class SettingsViewController: UIViewController {
 
     @IBOutlet weak var defaultTipControl: UISegmentedControl!
+    @IBOutlet weak var currentThemeLabel: UILabel!
+    @IBOutlet weak var themeSwitch: UISwitch!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -20,7 +22,9 @@ class SettingsViewController: UIViewController {
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         println("settings view will appear")
+        paintViewPerTheme(view)
         setupTipControl(defaultTipControl)
+        renderThemeSwitch()
     }
     
     override func viewDidAppear(animated: Bool) {
@@ -54,14 +58,31 @@ class SettingsViewController: UIViewController {
     }
     */
 
+    func renderThemeSwitch(wasChanged: Bool = false) {
+        var isLight = DEFAULT_THEME
+        if (wasChanged) {
+            isLight = themeSwitch.on
+        } else {
+            isLight = getThemeIsLight()
+            themeSwitch.on = isLight
+        }
+        currentThemeLabel.text = isLight ? THEME_LIGHT : THEME_DARK
+        paintViewPerTheme(view)
+    }
+
     @IBAction func onDonePressed(sender: AnyObject) {
         dismissThisView()
+    }
+
+    @IBAction func onThemeSwitchChanged(sender: AnyObject) {
+        var isLight = themeSwitch.on
+        setTheme(isLight)
+        renderThemeSwitch(wasChanged: true)
     }
 
     @IBAction func onEditingChanged(sender: AnyObject) {
         var tipPercentage = getTipPercentage(defaultTipControl.selectedSegmentIndex)
         setDefaultTipPercentage(tipPercentage)
-        dismissThisView()
     }
 
     func dismissThisView() {

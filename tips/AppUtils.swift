@@ -40,3 +40,13 @@ func getLastBillAmount() -> Double? {
     }
     return lastBillAmount
 }
+
+func setTheme(isLight: Bool) {
+    setDefaults(DEFAULTS_CURRENT_THEME, isLight)
+}
+
+func getThemeIsLight() -> Bool {
+    var currentTheme: Bool? = getDefaults(DEFAULTS_CURRENT_THEME) as? Bool
+    var isLight = (currentTheme != nil) ? currentTheme! : DEFAULT_THEME
+    return isLight
+}

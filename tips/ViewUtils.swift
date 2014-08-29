@@ -19,3 +19,9 @@ func setupTipControl(tipControl: UISegmentedControl!) {
         }
     }
 }
+
+func paintViewPerTheme(view: UIView) {
+    let isLight = getThemeIsLight()
+    var bgColor = isLight ? UIColor.whiteColor() : UIColor.blackColor()
+    view.backgroundColor = bgColor
+}

@@ -16,7 +16,12 @@ let TIP_PERCENTAGES = [
 
 let REMEMBER_BILL_THRESHOLD_SECONDS: Double = 60.0 * 10
 
+let DEFAULT_THEME: Bool = true
+let THEME_LIGHT = "Light"
+let THEME_DARK = "Dark"
+
 // Keys for NSUserDefaults
 let DEFAULTS_TIP_PERCENTAGE = "tip_percentage"
 let DEFAULTS_LAST_BILL_AMOUNT = "last_bill_amount"
 let DEFAULTS_LAST_BILL_TIMESTAMP = "last_bill_timestamp"
+let DEFAULTS_CURRENT_THEME = "current_theme"

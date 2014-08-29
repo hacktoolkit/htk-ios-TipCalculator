@@ -25,6 +25,7 @@ class TipsViewController: UIViewController {
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         println("tips view will appear")
+        paintViewPerTheme(view)
         setupTipControl(tipControl)
         var lastBillAmount: Double? = getLastBillAmount()
         if (lastBillAmount != nil) {
