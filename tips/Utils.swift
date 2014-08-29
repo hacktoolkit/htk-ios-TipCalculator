@@ -19,3 +19,10 @@ func getDefaults(key: String) -> AnyObject? {
     var value: AnyObject? = defaults.objectForKey(key)
     return value
 }
+
+func formatCurrency(amount: Double) -> String {
+    var numberFormatter = NSNumberFormatter()
+    numberFormatter.numberStyle = NSNumberFormatterStyle.CurrencyStyle
+    var formattedAmount = numberFormatter.stringFromNumber(amount)
+    return formattedAmount
+}
