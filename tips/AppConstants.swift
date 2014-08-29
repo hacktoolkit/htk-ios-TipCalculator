@@ -20,6 +20,8 @@ let DEFAULT_THEME: Bool = true
 let THEME_LIGHT = "Light"
 let THEME_DARK = "Dark"
 
+let UI_TRANSITION_DURATION_SECONDS = 0.2
+
 // Keys for NSUserDefaults
 let DEFAULTS_TIP_PERCENTAGE = "tip_percentage"
 let DEFAULTS_LAST_BILL_AMOUNT = "last_bill_amount"

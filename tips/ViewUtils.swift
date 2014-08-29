@@ -23,5 +23,7 @@ func setupTipControl(tipControl: UISegmentedControl!) {
 func paintViewPerTheme(view: UIView) {
     let isLight = getThemeIsLight()
     var bgColor = isLight ? UIColor.whiteColor() : UIColor.blackColor()
-    view.backgroundColor = bgColor
+    UIView.animateWithDuration(UI_TRANSITION_DURATION_SECONDS, animations: {
+        view.backgroundColor = bgColor
+    })
 }
