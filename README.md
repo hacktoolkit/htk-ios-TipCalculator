@@ -13,5 +13,8 @@ Here's what it looks like:
 * Add [hacktoolkit-ios_lib](https://github.com/hacktoolkit/hacktoolkit-ios_lib) as a submodule (temporary step until CocoaPods supports Swift source files natively)
 
   * `git submodule add git@github.com:hacktoolkit/hacktoolkit-ios_lib.git htk`
-  * Import the `htk/Hacktoolkit` directory into Xcode. `Add Files to "YOURPROJECT"...`; Navigate to and select `htk/Hacktoolkit`; Select `Create groups` for added folders
+  * Import the `htk/Hacktoolkit` directory into Xcode.
+    * `Add Files to "YOURPROJECT"...`
+    * Navigate to and select `htk/Hacktoolkit`
+    * Select `Create groups` for added folders
 
