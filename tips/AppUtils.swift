@@ -14,39 +14,40 @@ func getTipPercentage(index: Int) -> Double {
 }
 
 func getDefaultTipPercentage() -> Double? {
-    var tipPercentage: Double? = getDefaults(DEFAULTS_TIP_PERCENTAGE) as? Double
+    var tipPercentage: Double? = HTKUtils.getDefaults(DEFAULTS_TIP_PERCENTAGE) as? Double
     return tipPercentage
 }
 
 func setDefaultTipPercentage(tipPercentage: Double) {
-    setDefaults(DEFAULTS_TIP_PERCENTAGE, tipPercentage)
+    HTKUtils.setDefaults(DEFAULTS_TIP_PERCENTAGE, withValue: tipPercentage)
 }
 
 func storeLastBillAmount(billAmount: Double) {
     var now = NSDate()
-    setDefaults(DEFAULTS_LAST_BILL_AMOUNT, billAmount)
-    setDefaults(DEFAULTS_LAST_BILL_TIMESTAMP, now)
+    HTKUtils.setDefaults(DEFAULTS_LAST_BILL_AMOUNT, withValue: billAmount)
+    HTKUtils.setDefaults(DEFAULTS_LAST_BILL_TIMESTAMP, withValue: now)
 }
 
 func getLastBillAmount() -> Double? {
     // gets the last bill amount if REMEMBER_BILL_THRESHOLD_SECONDS has not yet elapsed
-    var lastBillTimestamp: NSDate? = getDefaults(DEFAULTS_LAST_BILL_TIMESTAMP) as? NSDate
+    var lastBillTimestamp: NSDate? = HTKUtils.getDefaults(DEFAULTS_LAST_BILL_TIMESTAMP) as? NSDate
     var lastBillAmount: Double? = nil
     if (lastBillTimestamp != nil) {
         var elapsedTime = lastBillTimestamp!.timeIntervalSinceNow
         if (elapsedTime < REMEMBER_BILL_THRESHOLD_SECONDS) {
-            lastBillAmount = getDefaults(DEFAULTS_LAST_BILL_AMOUNT) as? Double
+            lastBillAmount = HTKUtils.getDefaults(DEFAULTS_LAST_BILL_AMOUNT) as? Double
         }
     }
     return lastBillAmount
 }
 
 func setTheme(isLight: Bool) {
-    setDefaults(DEFAULTS_CURRENT_THEME, isLight)
+    HTKUtils.setDefaults(DEFAULTS_CURRENT_THEME, withValue: isLight)
+//    setDefaults("asdfsdf", Theme.Dark)
 }
 
 func getThemeIsLight() -> Bool {
-    var currentTheme: Bool? = getDefaults(DEFAULTS_CURRENT_THEME) as? Bool
+    var currentTheme: Bool? = HTKUtils.getDefaults(DEFAULTS_CURRENT_THEME) as? Bool
     var isLight = (currentTheme != nil) ? currentTheme! : DEFAULT_THEME
     return isLight
 }

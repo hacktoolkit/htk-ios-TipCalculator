@@ -18,8 +18,8 @@ class TipsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-        tipLabel.text = formatCurrency(0.0)
-        totalLabel.text = formatCurrency(0.0)
+        tipLabel.text = HTKUtils.formatCurrency(0.0)
+        totalLabel.text = HTKUtils.formatCurrency(0.0)
     }
 
     override func viewWillAppear(animated: Bool) {
@@ -71,8 +71,8 @@ class TipsViewController: UIViewController {
         if (wasEdited) {
             storeLastBillAmount(billAmount)
         }
-        tipLabel.text = formatCurrency(tip)
-        totalLabel.text = formatCurrency(total)
+        tipLabel.text = HTKUtils.formatCurrency(tip)
+        totalLabel.text = HTKUtils.formatCurrency(total)
     }
     
 }
